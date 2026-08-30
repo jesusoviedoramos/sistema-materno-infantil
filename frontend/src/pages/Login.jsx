@@ -1,24 +1,24 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function Login() {
+  const navigate = useNavigate()
+
   const [rut, setRut] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+  e.preventDefault()
 
-    if (!rut.trim() || !password.trim()) {
-      setError('Debes completar todos los campos.')
-      return
-    }
+  if (!rut.trim() || !password.trim()) {
+    setError('Debes completar todos los campos.')
+    return
+  }
 
-    setError('')
+  setError('')
 
-    console.log({
-      rut,
-      password,
-    })
+  navigate('/dashboard')
   }
 
   return (
